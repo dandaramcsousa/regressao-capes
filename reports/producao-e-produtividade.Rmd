@@ -1,14 +1,16 @@
 ---
 title: "Regressão linear na prática"
+author: "Dandara Sousa"
 output:
   html_document: default
   html_notebook: default
 ---
 
-```{r warning=FALSE, echo=FALSE}
+```{r warning=FALSE, message = FALSE, echo=FALSE}
 library(tidyverse)
 library(broom)
 library(modelr)
+library(GGally)
 source(here::here("code/lib.R"))
 theme_set(theme_bw())
 
@@ -189,12 +191,25 @@ Diferente de medirmos produção (total produzido), é medirmos produtividade (p
 
 Produza abaixo o modelo e um texto que comente (i) o modelo, tal como os que fizemos antes, e (ii) as implicações - o que aprendemos sobre como funcionam programas de pós no brasil?.
 
+Para a escolha do modelo vamos observar primeiro a correlação entre os dados. Para uma melhor visualização a variável tem_doutorado foi omitida (pois é uma variável categórica) mas estará no modelo.
+
+```{r warning=FALSE, message = FALSE, echo=FALSE}
+cacc %>%
+    select(-tem_doutorado) %>%
+    ggpairs()
+
+```
+
+Observando a correlação das variáveis com a variável produtividade é clara relação mais forte desta com docentes e produção. Temos assim os três fatores para nosso modelo.
 ```{r}
 modelo3 = lm(produtividade ~ docentes + producao + tem_doutorado, data = cacc)
 
 tidy(modelo3, conf.int = TRUE, conf.level = 0.95)
 glance(modelo3)
 ```
+
+
+
 
 **EXPLICAÇÃO**: Regressão múltipla foi utilizada para analisar se o número de docentes, a produção e o fato de ter doutorado tem uma associação significativa com a produtividade de um programa de pós graduação no Brasil. Os resultados da regressão indicam que um modelo com os 3 preditores no formato produtividade = -0,1.docentes + 0,03.producao + 0,95tem_doutorado explicam 2,28% da variância da variável de resposta (R2 = 0,82). O número de docentes tem uma relação significativa com o erro (b = [-0,13; 0,07], IC com 95%), assim como o número de produções (b = [0,02; 0,03], IC com 95%) e, o fato do programa ter doutorado medida como 1 (para tem_doutorado = TRUE b = [0,61; 1,29], IC com 95%). O aumento de 1 unidade dos docentes produz uma mudança de -0,1 na produtividade, enquanto um aumento de uma unidade na produção produz uma mudança de 0,03 e um novo programa com doutorado produz uma mudança de 0,95 no cálculo da produtividade.
     Adicionado ao que foi visto no modelo 2, o fato de um programa ter doutorado parece ser um indicativo que ele é mais produtivo do que um que ainda não o possui. Mas algo a ser observado uma vez que se um programa de mestrado produz muito, provavelmente a nota dele na CAPES sobe e ele passa a ter doutorado. Sendo assim reforça o ponto de um programa com doutorado ser mais produtivo.
