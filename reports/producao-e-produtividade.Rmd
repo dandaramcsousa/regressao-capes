@@ -1,6 +1,8 @@
 ---
 title: "Regressão linear na prática"
-output: html_notebook
+output:
+  html_document: default
+  html_notebook: default
 ---
 
 ```{r warning=FALSE, echo=FALSE}
