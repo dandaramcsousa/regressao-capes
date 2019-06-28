@@ -118,7 +118,7 @@ Produza aqui a sua versão desse texto, portanto:
 
 -----
 
-Regressão múltipla foi utilizada para analisar se o número de docentes permanentes tem uma associação significativa com a produção de artigos em programas de pós. Os resultados da regressão indicam que um modelo com o preditor no formato produção = XXX.VarIndep1 + YYY.VarIndep2 explicam XX,XX% da variância da variável de resposta (R2 = XX,XX). VarIndep1, medida como/em [unidade ou o que é o 0 e o que é 1] tem uma relação significativa com o erro (b = [yy,yy; zz,zz], IC com 95%), assim como VarIndep2 medida como [unidade ou o que é o 0 e o que é 1] (b = [yy,yy; zz,zz], IC com 95%). O aumento de 1 unidade de VarIndep1 produz uma mudança de xxx em VarDep, enquanto um aumento...
+Regressão simples foi utilizada para analisar se o número de docentes permanentes tem uma associação significativa com a produção de artigos em programas de pós. Os resultados da regressão indicam que um modelo com o preditor explica-se -41,27% da variância da variável de resposta (R2 = 0,81). O número de docentes tem uma relação significativa com o erro (b = [4,27; 5,37], IC com 95%),. O aumento de 1 unidade de docentes produz uma mudança de 4,81 na produção dos artigos.
 
 
 -----
@@ -127,7 +127,7 @@ Dito isso, o que significa a relação que você encontrou na prática para ente
 
 -----
 
-*SUBSTITUA ESSE TEXTO PELA SUA DISCUSSÃO DOS RESULTADOS*
+Sendo assim o número de docentes num programa de pós graduação parece ser bastante ligado à produção de artigos. Um palpite é porque quanto mais professores no corpo docente, mais pessoas qualificadas para produzir artigos e também mais orientados de mestrado e doutorado haverá. Como o mestrado e o doutorado são programas que são fortemente incentivados à escrita de artigos, os orientadores participam juntos de tais escritas.
 
 -----
 
